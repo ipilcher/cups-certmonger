@@ -1,0 +1,16 @@
+policy_module(cups_certmonger, 0.0.1)
+
+require {
+	type certmonger_t;
+	type cupsd_t;
+};
+
+type cupsd_cert_t;
+
+files_type(cupsd_cert_t)
+
+allow certmonger_t cupsd_cert_t:dir { add_name getattr read search write };
+allow certmonger_t cupsd_cert_t:file { create getattr open read write };
+
+allow cupsd_t cupsd_cert_t:dir search;
+allow cupsd_t cupsd_cert_t:file { getattr open read };

@@ -1,0 +1,1 @@
+/etc/pki/cupsd(/.*)?	gen_context(system_u:object_r:cupsd_cert_t, s0)
